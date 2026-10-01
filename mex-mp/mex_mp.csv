@@ -1,0 +1,89 @@
+formula,M,E,X,EX,M_type,in_mp,n_polymorphs,gs_id,gs_spacegroup,gs_prototype,gs_icsd,gs_e_above_hull_eV,gs_e_vs_competing_eV,any_icsd,competing_phases,hull_energy_ref_eV_atom
+LiPC,Li,C,P,CP,alcalin,False,0,,,,False,,,False,LiP (mp-9588) + C (mp-2516584),-5.8658
+LiAsC,Li,C,As,CAs,alcalin,False,0,,,,False,,,False,LiAs (mp-7943) + C (mp-2516584),-5.5898
+LiSiN,Li,Si,N,SiN,alcalin,False,0,,,,False,,,False,LiSi2N3 (mp-5853) + Li7Si3 (mp-1201871) + Si (mp-149),-6.1843
+LiSiP,Li,Si,P,SiP,alcalin,False,0,,,,False,,,False,Li5SiP3 (mp-685991) + SiP (mp-2798) + Si (mp-149),-4.6399
+LiSiAs,Li,Si,As,SiAs,alcalin,False,0,,,,False,,,False,SiAs (mp-1863) + Li3As (mp-757) + Si (mp-149),-4.3462
+LiGeN,Li,Ge,N,GeN,alcalin,True,2,mp-1246087,P6_3mc,P63mc-NaSnP,False,0.0536,0.0536,False,Li2GeN2 (mp-1029776) + Ge (mp-32),-5.4303
+LiGeP,Li,Ge,P,GeP,alcalin,False,0,,,,False,,,False,LiP (mp-9588) + Ge (mp-32),-4.3306
+LiGeAs,Li,Ge,As,GeAs,alcalin,False,0,,,,False,,,False,GeAs (mp-9548) + Li3As (mp-757) + Ge (mp-32),-4.0659
+LiSnN,Li,Sn,N,SnN,alcalin,True,3,mp-1245983,P6_3mc,P63mc-NaSnP,False,0.0241,0.0241,False,Li2SnN2 (mp-1029385) + Sn (mp-117),-5.0802
+LiSnP,Li,Sn,P,SnP,alcalin,False,0,,,,False,,,False,LiP (mp-9588) + Sn (mp-117),-4.1261
+LiSnAs,Li,Sn,As,SnAs,alcalin,False,0,,,,False,,,False,Sn4As3 (mp-12531) + Li3As (mp-757) + Sn (mp-117),-3.8892
+NaPC,Na,C,P,CP,alcalin,False,0,,,,False,,,False,NaP (mp-7440) + C (mp-2516584),-5.5752
+NaAsC,Na,C,As,CAs,alcalin,False,0,,,,False,,,False,NaAs (mp-1106381) + C (mp-2516584),-5.3279
+NaSiN,Na,Si,N,SiN,alcalin,False,0,,,,False,,,False,NaSi2N3 (mp-8973) + Na (mp-1186081) + Si (mp-149),-5.8327
+NaSiP,Na,Si,P,SiP,alcalin,False,0,,,,False,,,False,Na5SiP3 (mp-5929) + SiP (mp-2798) + Si (mp-149),-4.3376
+NaSiAs,Na,Si,As,SiAs,alcalin,False,0,,,,False,,,False,Na5SiAs3 (mp-18139) + SiAs (mp-1863) + Si (mp-149),-4.073
+NaGeN,Na,Ge,N,GeN,alcalin,True,1,mp-1246750,P6_3mc,P63mc-NaSnP,False,0.0398,0.0398,False,NaGe2N3 (mp-14433) + Na2GeN2 (mp-1029851) + NaGe (mp-29657),-5.0567
+NaGeP,Na,Ge,P,GeP,alcalin,False,0,,,,False,,,False,NaP (mp-7440) + Ge (mp-32),-4.04
+NaGeAs,Na,Ge,As,GeAs,alcalin,False,0,,,,False,,,False,NaAs (mp-1106381) + Ge (mp-32),-3.7927
+NaSnN,Na,Sn,N,SnN,alcalin,True,1,mp-12433,P6_3mc,P63mc-NaSnP,True,0.0642,0.0642,True,NaN3 (mp-22003) + NaSn2 (mp-583168) + NaSn (mp-11051),-4.8221
+NaSnP,Na,Sn,P,SnP,alcalin,True,1,mp-29529,P6_3mc,P63mc-NaSnP,True,0.0,-0.0457,True,NaP (mp-7440) + Sn (mp-117),-3.8355
+NaSnAs,Na,Sn,As,SnAs,alcalin,False,0,,,,False,,,False,Na(SnAs)2 (mp-9378) + Na5SnAs3 (mp-5248) + Sn (mp-117),-3.6295
+KPC,K,C,P,CP,alcalin,False,0,,,,False,,,False,KP (mp-7441) + KC8 (mp-28930) + K2P3 (mp-569857),-5.5267
+KAsC,K,C,As,CAs,alcalin,False,0,,,,False,,,False,KAs (mp-713) + C (mp-2516584),-5.3018
+KSiN,K,Si,N,SiN,alcalin,False,0,,,,False,,,False,Si3N4 (mp-988) + K (mp-1184905) + KSi (mp-1217),-5.7204
+KSiP,K,Si,P,SiP,alcalin,False,0,,,,False,,,False,K2SiP2 (mp-8235) + Si (mp-149),-4.3862
+KSiAs,K,Si,As,SiAs,alcalin,False,0,,,,False,,,False,K2SiAs2 (mp-6984) + Si (mp-149),-4.1096
+KGeN,K,Ge,N,GeN,alcalin,True,2,mp-1245591,R3m,,False,0.1823,0.1823,False,KGe (mp-2146) + KGe2N3 (mp-1029404) + KN3 (mp-827),-4.9772
+KGeP,K,Ge,P,GeP,alcalin,False,0,,,,False,,,False,K2P3 (mp-569857) + K3Ge17 (mp-1196998) + KGe (mp-2146),-4.012
+KGeAs,K,Ge,As,GeAs,alcalin,False,0,,,,False,,,False,K2GeAs2 (mp-8930) + Ge (mp-32),-3.7967
+KSnN,K,Sn,N,SnN,alcalin,True,2,mp-1245826,P6_3mc,P63mc-NaSnP,False,0.192,0.192,False,KN3 (mp-827) + K4Sn9 (mp-570900) + KSn (mp-542374),-4.8133
+KSnP,K,Sn,P,SnP,alcalin,False,0,,,,False,,,False,K2P3 (mp-569857) + K4Sn9 (mp-570900) + K4Sn23 (mp-13909),-3.8363
+KSnAs,K,Sn,As,SnAs,alcalin,True,1,mp-3481,P6_3mc,P63mc-NaSnP,True,0.0,-0.0381,True,K6Sn3As5 (mp-28728) + K(SnAs)3 (mp-1192538) + K4Sn23 (mp-13909),-3.618
+RbPC,Rb,C,P,CP,alcalin,False,0,,,,False,,,False,Rb2P3 (mp-2079) + RbC8 (mp-568643) + Rb (mp-1179656),-5.4631
+RbAsC,Rb,C,As,CAs,alcalin,False,0,,,,False,,,False,RbAs (mp-10802) + C (mp-2516584),-5.2381
+RbSiN,Rb,Si,N,SiN,alcalin,False,0,,,,False,,,False,Si3N4 (mp-988) + Rb (mp-1179656) + RbSi (mp-1074),-5.6731
+RbSiP,Rb,Si,P,SiP,alcalin,False,0,,,,False,,,False,Rb2P3 (mp-2079) + RbSi (mp-1074) + Si (mp-149),-4.1813
+RbSiAs,Rb,Si,As,SiAs,alcalin,False,0,,,,False,,,False,Rb2SiAs2 (mp-6960) + Si (mp-149),-4.0551
+RbGeN,Rb,Ge,N,GeN,alcalin,False,0,,,,False,,,False,RbN3 (mp-743) + RbGe (mp-1888) + Rb4Ge23 (mp-1209551),-4.9193
+RbGeP,Rb,Ge,P,GeP,alcalin,False,0,,,,False,,,False,Rb2P3 (mp-2079) + Rb4Ge23 (mp-1209551) + RbGe (mp-1888),-3.9636
+RbGeAs,Rb,Ge,As,GeAs,alcalin,False,0,,,,False,,,False,Rb4Ge23 (mp-1209551) + RbAs (mp-10802) + Rb2As3 (mp-15556),-3.7083
+RbSnN,Rb,Sn,N,SnN,alcalin,True,1,mp-1245901,P6_3mc,P63mc-NaSnP,False,0.2574,0.2574,False,RbSn (mp-11054) + RbN3 (mp-743) + Sn (mp-117),-4.7493
+RbSnP,Rb,Sn,P,SnP,alcalin,False,0,,,,False,,,False,Rb2P3 (mp-2079) + RbSn (mp-11054) + Sn (mp-117),-3.77
+RbSnAs,Rb,Sn,As,SnAs,alcalin,False,0,,,,False,,,False,Rb2SnAs2 (mp-8931) + Sn (mp-117),-3.5594
+CsPC,Cs,C,P,CP,alcalin,False,0,,,,False,,,False,Cs2P3 (mp-14652) + CsC8 (mp-28861) + Cs (mp-1184151),-5.4516
+CsAsC,Cs,C,As,CAs,alcalin,False,0,,,,False,,,False,Cs2As3 (mp-15557) + CsC8 (mp-28861) + Cs3As (mp-542220),-5.1962
+CsSiN,Cs,Si,N,SiN,alcalin,False,0,,,,False,,,False,Si3N4 (mp-988) + Cs (mp-1184151) + CsSi (mp-1370),-5.6479
+CsSiP,Cs,Si,P,SiP,alcalin,False,0,,,,False,,,False,Cs2SiP2 (mp-8932) + Si (mp-149),-4.3008
+CsSiAs,Cs,Si,As,SiAs,alcalin,False,0,,,,False,,,False,Cs2SiAs2 (mp-573721) + Si (mp-149),-4.0377
+CsGeN,Cs,Ge,N,GeN,alcalin,False,0,,,,False,,,False,CsGe (mp-1273) + CsN3 (mp-510557) + Ge3N4 (mp-672289),-4.9
+CsGeP,Cs,Ge,P,GeP,alcalin,False,0,,,,False,,,False,Cs2P3 (mp-14652) + CsGe (mp-1273) + Ge (mp-32),-3.9468
+CsGeAs,Cs,Ge,As,GeAs,alcalin,False,0,,,,False,,,False,Cs2As3 (mp-15557) + CsGe (mp-1273) + Ge (mp-32),-3.6864
+CsSnN,Cs,Sn,N,SnN,alcalin,True,1,mp-1245940,P6_3mc,P63mc-NaSnP,False,0.3717,0.3717,False,CsN3 (mp-510557) + CsSn (mp-571056) + Cs4Sn23 (mp-2496),-4.7483
+CsSnP,Cs,Sn,P,SnP,alcalin,False,0,,,,False,,,False,Cs2P3 (mp-14652) + Cs4Sn23 (mp-2496) + CsSn (mp-571056),-3.7875
+CsSnAs,Cs,Sn,As,SnAs,alcalin,False,0,,,,False,,,False,Cs2SnAs2 (mp-8934) + Cs4Sn23 (mp-2496) + Cs3As7 (mp-573631),-3.5554
+CuPC,Cu,C,P,CP,d10,False,0,,,,False,,,False,CuP2 (mp-927) + C (mp-2516584) + Cu (mp-30),-6.3031
+CuAsC,Cu,C,As,CAs,d10,False,0,,,,False,,,False,Cu (mp-30) + As (mp-11) + C (mp-2516584),-5.9957
+CuSiN,Cu,Si,N,SiN,d10,False,0,,,,False,,,False,Si3N4 (mp-988) + Cu15Si4 (mp-14266) + Cu (mp-30),-6.7353
+CuSiP,Cu,Si,P,SiP,d10,False,0,,,,False,,,False,SiP (mp-2798) + Cu15Si4 (mp-14266) + Cu4SiP8 (mp-28995),-5.0857
+CuSiAs,Cu,Si,As,SiAs,d10,False,0,,,,False,,,False,Cu15Si4 (mp-14266) + SiAs (mp-1863) + SiAs2 (mp-978553),-4.7943
+CuGeN,Cu,Ge,N,GeN,d10,False,0,,,,False,,,False,Ge3N4 (mp-672289) + Cu3Ge (mp-19724) + Cu (mp-30),-5.8327
+CuGeP,Cu,Ge,P,GeP,d10,False,0,,,,False,,,False,CuP2 (mp-927) + Ge (mp-32) + Cu3Ge (mp-19724),-4.7692
+CuGeAs,Cu,Ge,As,GeAs,d10,False,0,,,,False,,,False,GeAs (mp-9548) + Cu (mp-30),-4.4892
+CuSnN,Cu,Sn,N,SnN,d10,False,0,,,,False,,,False,CuSn (mp-10598) + N2 (mp-25),-5.4973
+CuSnP,Cu,Sn,P,SnP,d10,False,0,,,,False,,,False,Cu4SnP10 (mp-34126) + CuSn (mp-10598) + Sn (mp-117),-4.5782
+CuSnAs,Cu,Sn,As,SnAs,d10,False,0,,,,False,,,False,Sn4As3 (mp-12531) + Cu (mp-30) + As (mp-11),-4.3088
+AgPC,Ag,C,P,CP,d10,False,0,,,,False,,,False,Ag3P11 (mp-27821) + C (mp-2516584) + Ag (mp-989737),-5.8355
+AgAsC,Ag,C,As,CAs,d10,False,0,,,,False,,,False,Ag (mp-989737) + As (mp-11) + C (mp-2516584),-5.5734
+SiAgN,Ag,Si,N,SiN,d10,False,0,,,,False,,,False,Si3N4 (mp-988) + Ag (mp-989737) + Si (mp-149),-6.2896
+SiAgP,Ag,Si,P,SiP,d10,False,0,,,,False,,,False,SiP (mp-2798) + Ag (mp-989737),-4.6472
+SiAgAs,Ag,Si,As,SiAs,d10,False,0,,,,False,,,False,SiAs (mp-1863) + Ag (mp-989737),-4.3537
+AgGeN,Ag,Ge,N,GeN,d10,False,0,,,,False,,,False,Ge3N4 (mp-672289) + Ag (mp-989737) + Ge (mp-32),-5.4086
+AgGeP,Ag,Ge,P,GeP,d10,False,0,,,,False,,,False,Ag3Ge5P6 (mp-17862) + Ag (mp-989737) + Ge (mp-32),-4.3119
+AgGeAs,Ag,Ge,As,GeAs,d10,False,0,,,,False,,,False,GeAs (mp-9548) + Ag (mp-989737),-4.0669
+AgSnN,Ag,Sn,N,SnN,d10,True,1,mp-1245446,P6_3mc,P63mc-NaSnP,False,0.3216,0.3216,False,Ag3Sn (mp-611) + N2 (mp-25) + Sn (mp-117),-5.0681
+AgSnP,Ag,Sn,P,SnP,d10,False,0,,,,False,,,False,Sn4P3 (mp-27410) + Ag3Sn (mp-611) + Ag3SnP7 (mp-29849),-4.1219
+AgSnAs,Ag,Sn,As,SnAs,d10,False,0,,,,False,,,False,Sn4As3 (mp-12531) + Ag (mp-989737) + As (mp-11),-3.8865
+PAuC,Au,C,P,CP,d10,False,0,,,,False,,,False,P3Au2 (mp-27258) + C (mp-2516584) + Au (mp-81),-6.0333
+AsAuC,Au,C,As,CAs,d10,False,0,,,,False,,,False,As (mp-11) + Au (mp-81) + C (mp-2516584),-5.7206
+SiAuN,Au,Si,N,SiN,d10,False,0,,,,False,,,False,Si3N4 (mp-988) + Au (mp-81) + Si (mp-149),-6.4367
+SiPAu,Au,Si,P,SiP,d10,True,1,mp-1207095,R3m,R3m-MCP,False,0.0,-0.1093,False,SiP (mp-2798) + Au (mp-81),-4.7943
+SiAsAu,Au,Si,As,SiAs,d10,False,0,,,,False,,,False,SiAs (mp-1863) + Au (mp-81),-4.5008
+GeAuN,Au,Ge,N,GeN,d10,False,0,,,,False,,,False,Ge3N4 (mp-672289) + Au (mp-81) + Ge (mp-32),-5.5557
+GePAu,Au,Ge,P,GeP,d10,False,0,,,,False,,,False,P3Au2 (mp-27258) + Ge (mp-32) + Au (mp-81),-4.498
+GeAsAu,Au,Ge,As,GeAs,d10,True,1,mp-1224371,C2,,False,0.0,-0.0492,False,GeAs (mp-9548) + Au (mp-81),-4.214
+SnAuN,Au,Sn,N,SnN,d10,False,0,,,,False,,,False,SnAu (mp-1775) + N2 (mp-25),-5.3295
+SnPAu,Au,Sn,P,SnP,d10,False,0,,,,False,,,False,SnAu (mp-1775) + SnP7Au3 (mp-3245) + Sn4P3 (mp-27410),-4.3624
+SnAsAu,Au,Sn,As,SnAs,d10,False,0,,,,False,,,False,SnAu (mp-1775) + As (mp-11),-4.1037
