@@ -85,7 +85,8 @@ connu expérimentalement (ICSD). Case hachurée : composition absente de MP.</p>
 <b>E<sub>hull</sub></b> : distance de l'état fondamental MP à l'enveloppe de toutes ces entrées.
 <b>Phases concurrentes</b> : décomposition de la composition MEX sur l'enveloppe construite <i>sans</i> aucun polymorphe MEX ;
 <b>E<sub>réf</sub></b> est l'énergie de cette enveloppe à la composition MEX (eV/atome, MP2020) — un candidat DFT d'énergie inférieure est stable.
-<b>ΔE vs concurrentes</b> = E(état fondamental MP) − E<sub>réf</sub> (négatif : stable).
+<b>ΔH<sub>d</sub></b> (énergie de décomposition) = E(état fondamental MP) − E<sub>réf</sub> : négatif, stable (|ΔH<sub>d</sub>| = marge de stabilité) ; positif, instable.
+À ne pas confondre avec E<sub>hull</sub> (définition de MP), nul pour tout composé stable.
 <b>Prototype</b> : correspondance (StructureMatcher, espèces substituées) avec les prototypes de <code>mex/</code> : R3m-MCP (AuSiP, mp-1207095),
 P6<sub>3</sub>mc-NaSnP (mp-29529 ; P6<sub>3</sub>mc-KSnAs, mp-3481, en est l'image miroir, identique pour StructureMatcher).
 R3m-oct n'a pas d'équivalent dans MP.</p>
@@ -149,7 +150,7 @@ document.querySelectorAll(".cell").forEach(c=>{
 
 // table
 const COLS=[["formula","Formule"],["M","M"],["EX","EX"],["gs_id","État fond. MP"],["gs_spacegroup","Groupe"],
- ["gs_prototype","Prototype mex"],["gs_e_above_hull_eV","E_hull (meV/at)",1],["gs_e_vs_competing_eV","ΔE vs concurrentes (meV/at)",1],
+ ["gs_prototype","Prototype mex"],["gs_e_above_hull_eV","E_hull (meV/at)",1],["gs_e_vs_competing_eV","ΔH_d (meV/at)",1],
  ["any_icsd","ICSD"],["competing_phases","Phases concurrentes"],["hull_energy_ref_eV_atom","E_réf (eV/at)",1],["n_polymorphs","Polymorphes",1]];
 let sortKey=null,dir=1;
 const head=document.querySelector("thead tr");

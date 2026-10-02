@@ -71,8 +71,8 @@ Second avis <b>CHGNet</b> : 61 meV/at d'erreur moyenne contre la DFT (MACE : 11)
 le classement (✓ : candidat dans le premier quart CHGNet).</div>
 <div class="stats" id="stats"></div>
 
-<h2>Meilleur candidat par composition : ΔE vs phases concurrentes (meV/atome)</h2>
-<p class="note">Valeur = dE<sub>mix</sub> du prototype le plus bas ; en dessous, ce prototype. Survol : tous les prototypes de la composition ;
+<h2>Meilleur candidat par composition : ΔH<sub>d</sub> (meV/atome)</h2>
+<p class="note">Valeur = ΔH<sub>d</sub> (MACE) du prototype le plus bas ; en dessous, ce prototype. Survol : tous les prototypes de la composition ;
 clic : lignes du tableau.</p>
 <div class="scroll"><div class="grid" id="grid"></div></div>
 <div class="legend" id="legend"></div>
@@ -88,10 +88,13 @@ clic : lignes du tableau.</p>
 </div>
 <div class="wrap"><table class="t" id="t"><thead><tr></tr></thead><tbody></tbody></table></div>
 <footer>
-<p><b>dE<sub>mix</sub></b> = E(candidat, MACE, corrigé MP2020) − E(enveloppe DFT MP des phases concurrentes, sans aucun MEX), à la composition MEX.
-<b>dE<sub>ML</sub></b> : même chose contre l'enveloppe des mêmes phases relaxées avec MACE (erreurs systématiques compensées, sauf phases mal décrites).
-<b>Priorité</b> (candidats sans réserve, selon MACE) : 1 si dE<sub>mix</sub> &lt; 0, 2 si 0–50 meV/at.
-<b>CHGNet</b> : dE<sub>mix</sub> avec CHGNet 0.3.0, même protocole ; ✓ = premier quart du classement CHGNet.
+<p><b>ΔH<sub>d</sub></b> (énergie de décomposition, Bartel <i>et al.</i> 2020) = E(candidat, MACE, corrigé MP2020) − E(enveloppe DFT MP des phases concurrentes,
+construite <i>sans</i> aucun polymorphe MEX), à la composition MEX. <b>Négatif : stable</b> (|ΔH<sub>d</sub>| = marge de stabilité ; NaSnP, −47 :
+NaSnP → NaP + Sn coûterait 47 meV/at) ; <b>positif : instable</b>. Contrairement à l'« energy above hull » de MP, nulle pour tout composé stable,
+ΔH<sub>d</sub> conserve la marge de stabilité.
+<b>ΔH<sub>d</sub><sup>ML</sup></b> : même chose contre l'enveloppe des mêmes phases relaxées avec MACE (erreurs systématiques compensées, sauf phases mal décrites).
+<b>Priorité</b> (candidats sans réserve, selon MACE) : 1 si ΔH<sub>d</sub> &lt; 0, 2 si 0–50 meV/at.
+<b>CHGNet</b> : ΔH<sub>d</sub> avec CHGNet 0.3.0, même protocole ; ✓ = premier quart du classement CHGNet.
 <b>DFT MP</b> : valeur DFT de l'état fondamental MP de la composition (s'il existe), même référence. Négatif : sous l'enveloppe.
 <b>ΔV</b> : variation de volume depuis le POSCAR.init (volume DLS).</p>
 <p>Données : <a href="prescreen_mace.csv">prescreen_mace.csv</a> · <a href="prescreen_consensus.csv">prescreen_consensus.csv</a> (MACE + CHGNet) · méthode, validation et limites : README de
@@ -148,8 +151,8 @@ document.querySelectorAll(".cell").forEach(c=>{
   c.addEventListener("click",go);c.addEventListener("keydown",e=>{if(e.key==="Enter")go();});
 });
 
-const COLS=[["candidate","Candidat"],["formula","Formule"],["prototype","Prototype"],["dE_mix_meV","dE_mix (meV/at)",1],
- ["priority","Priorité"],["dE_mix_meV_chgnet","CHGNet (meV/at)",1],["chgnet_top","CHGNet ✓"],["dE_ml_meV","dE_ML (meV/at)",1],["rank_mix","Rang",1],["spacegroup","Groupe (relaxé)"],["volume_change_pct","ΔV (%)",1],
+const COLS=[["candidate","Candidat"],["formula","Formule"],["prototype","Prototype"],["dE_mix_meV","ΔH_d MACE (meV/at)",1],
+ ["priority","Priorité"],["dE_mix_meV_chgnet","ΔH_d CHGNet (meV/at)",1],["chgnet_top","CHGNet ✓"],["dE_ml_meV","ΔH_d^ML (meV/at)",1],["rank_mix","Rang",1],["spacegroup","Groupe (relaxé)"],["volume_change_pct","ΔV (%)",1],
  ["dft_mp_meV","DFT MP (meV/at)",1],["caveat","Réserve"]];
 let sortKey="dE_mix_meV",dir=1;
 const head=document.querySelector("#t thead tr");
