@@ -85,7 +85,7 @@ concurrentes. Indicatif : sert à ordonner la file DFT, pas à conclure. Calcul 
 NaSnP : −47 contre −46 ; écart R3m-MCP − P6<sub>3</sub>mc de NaSnP : 183 contre 182 meV). Colonnes hachurées :
 <b>X = N</b> (azotures concurrents mal décrits par le potentiel ; la valeur affichée, contre l'enveloppe DFT, reste correcte pour les états fondamentaux MP)
 et <b>E = C</b> (pas de phase C–P dans MP : les MCP sortent à 400–480 meV/at contre ≈ 250–320 en DFT).
-Second avis <b>CHGNet</b> : 59 meV/at d'erreur moyenne contre la DFT (MACE : 9), échelle d'énergie comprimée ; il ne sert qu'à confirmer
+Second avis <b>CHGNet</b> : 61 meV/at d'erreur moyenne contre la DFT (MACE : 11), échelle d'énergie comprimée ; il ne sert qu'à confirmer
 le classement (✓ : candidat dans le premier quart CHGNet).</div>
 <div class="stats" id="stats"></div>
 
