@@ -7,6 +7,8 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 df = pd.read_csv(HERE / "prescreen_mace.csv")
+cons = pd.read_csv(HERE / "prescreen_consensus.csv", dtype={"priority": str}).fillna({"priority": ""})
+df = df.merge(cons[["candidate", "dE_mix_meV_chgnet", "chgnet_top", "priority"]], on="candidate")
 mp = pd.read_csv(HERE.parent / "mex-mp" / "mex_mp.csv").set_index("formula")
 SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 pretty_sg = lambda sg: "".join(c.translate(SUB) if i and sg[i - 1] == "_" else c for i, c in enumerate(sg)).replace("_", "")
@@ -18,7 +20,7 @@ df["dft_mp_meV"] = df.formula.map(lambda f: round(1000 * mp.loc[f, "gs_e_vs_comp
 df["mp_gs"] = df.formula.map(lambda f: mp.loc[f, "gs_id"] if f in mp.index and mp.loc[f, "in_mp"] else "")
 df["rank_mix"] = df.groupby("formula").dE_mix_meV.rank(method="first").astype(int) - 1
 cols = ["candidate", "formula", "M", "E", "X", "EX", "M_type", "prototype", "dE_mix_meV", "dE_ml_meV", "rank_mix",
-        "spacegroup", "volume_change_pct", "caveat", "dft_mp_meV", "mp_gs"]
+        "spacegroup", "volume_change_pct", "caveat", "dft_mp_meV", "mp_gs", "dE_mix_meV_chgnet", "chgnet_top", "priority"]
 rows = json.loads(df[cols].to_json(orient="records", force_ascii=False))
 
 html = r"""<title>MEX : pré-criblage MACE</title>
@@ -82,7 +84,9 @@ concurrentes. Indicatif : sert à ordonner la file DFT, pas à conclure. Calcul 
 <div class="warnbox"><b>Fiabilité.</b> Validé à ~10 meV/at contre la DFT pour E = Si, Ge, Sn et X = P, As (AuSiP : −108 contre −109 ;
 NaSnP : −47 contre −46 ; écart R3m-MCP − P6<sub>3</sub>mc de NaSnP : 183 contre 182 meV). Colonnes hachurées :
 <b>X = N</b> (azotures concurrents mal décrits par le potentiel ; la valeur affichée, contre l'enveloppe DFT, reste correcte pour les états fondamentaux MP)
-et <b>E = C</b> (pas de phase C–P dans MP : les MCP sortent à 400–480 meV/at contre ≈ 250–320 en DFT).</div>
+et <b>E = C</b> (pas de phase C–P dans MP : les MCP sortent à 400–480 meV/at contre ≈ 250–320 en DFT).
+Second avis <b>CHGNet</b> : 59 meV/at d'erreur moyenne contre la DFT (MACE : 9), échelle d'énergie comprimée ; il ne sert qu'à confirmer
+le classement (✓ : candidat dans le premier quart CHGNet).</div>
 <div class="stats" id="stats"></div>
 
 <h2>Meilleur candidat par composition : ΔE vs phases concurrentes (meV/atome)</h2>
@@ -98,14 +102,17 @@ clic : lignes du tableau.</p>
   <label>Prototype <select id="pt"><option value="">tous</option><option>R3m-MCP</option><option>R3m-oct</option><option>P63mc-NaSnP</option><option value="mp">état fondamental MP</option></select></label>
   <label><input type="checkbox" id="best"> meilleur par composition</label>
   <label><input type="checkbox" id="ok"> sans réserve (ni N, ni C)</label>
+  <label><input type="checkbox" id="prio"> priorité 1 ou 2</label>
 </div>
 <div class="wrap"><table class="t" id="t"><thead><tr></tr></thead><tbody></tbody></table></div>
 <footer>
 <p><b>dE<sub>mix</sub></b> = E(candidat, MACE, corrigé MP2020) − E(enveloppe DFT MP des phases concurrentes, sans aucun MEX), à la composition MEX.
 <b>dE<sub>ML</sub></b> : même chose contre l'enveloppe des mêmes phases relaxées avec MACE (erreurs systématiques compensées, sauf phases mal décrites).
+<b>Priorité</b> (candidats sans réserve, selon MACE) : 1 si dE<sub>mix</sub> &lt; 0, 2 si 0–50 meV/at.
+<b>CHGNet</b> : dE<sub>mix</sub> avec CHGNet 0.3.0, même protocole ; ✓ = premier quart du classement CHGNet.
 <b>DFT MP</b> : valeur DFT de l'état fondamental MP de la composition (s'il existe), même référence. Négatif : sous l'enveloppe.
 <b>ΔV</b> : variation de volume depuis le POSCAR.init (volume DLS).</p>
-<p>Données : <a href="prescreen_mace.csv">prescreen_mace.csv</a> · méthode, validation et limites : README de
+<p>Données : <a href="prescreen_mace.csv">prescreen_mace.csv</a> · <a href="prescreen_consensus.csv">prescreen_consensus.csv</a> (MACE + CHGNet) · méthode, validation et limites : README de
 <code>mex/prescreen_ml/</code> (dépôt MCP) · page générée par <a href="make_page.py">make_page.py</a>.</p>
 </footer>
 </main>
@@ -125,6 +132,7 @@ const protoName=p=>p.startsWith("mp-")?"MP "+p:p;
 
 const best=Object.values(byComp).map(a=>a[0]);
 $("stats").innerHTML=[[DATA.length,"candidats"],[DATA.filter(r=>r.dE_mix_meV<0).length,"sous l'enveloppe DFT"],
+ [DATA.filter(r=>r.priority==="1").length+" / "+DATA.filter(r=>r.priority==="2").length,"candidats priorité 1 / 2"],
  [best.filter(r=>r.dE_mix_meV<0&&!r.caveat).length,"compositions < 0, sans réserve"],
  [best.filter(r=>r.dE_mix_meV<0&&!r.caveat&&r.dft_mp_meV===null).length,"dont absentes de MP"],
  [best.filter(r=>r.dE_mix_meV<=50&&!r.caveat).length,"compositions ≤ 50 meV, sans réserve"]]
@@ -144,7 +152,7 @@ $("legend").innerHTML=BINS.map(([,l],i)=>`<span><i style="background:var(--b${i}
 const tip=$("tip");
 function showTip(el,ev){const a=byComp[el.dataset.k],r=a[0];
   tip.innerHTML=`<b>${r.formula}</b>${r.mp_gs?` · MP ${r.mp_gs} : ${r.dft_mp_meV} meV (DFT)`:' · absente de MP'}<table>`+
-   a.map(c=>`<tr><td>${protoName(c.prototype)}</td><td style="text-align:right">${fmt(c.dE_mix_meV)} meV</td><td class="k">${c.spacegroup}</td></tr>`).join("")+`</table>`+
+   a.map(c=>`<tr><td>${protoName(c.prototype)}</td><td style="text-align:right">${fmt(c.dE_mix_meV)} meV</td><td class="k">CHGNet ${fmt(c.dE_mix_meV_chgnet)}</td><td class="k">${c.spacegroup}</td></tr>`).join("")+`</table>`+
    (r.caveat?`<span class="k">Réserve : ${r.caveat==="N"?"nitrure (azotures concurrents)":"E = C (peu de données C–P)"}</span>`:"");
   tip.hidden=false;const x=Math.min(ev.clientX+14,innerWidth-tip.offsetWidth-8),y=ev.clientY+14+tip.offsetHeight>innerHeight?ev.clientY-tip.offsetHeight-10:ev.clientY+14;
   tip.style.left=x+"px";tip.style.top=y+"px";}
@@ -159,7 +167,7 @@ document.querySelectorAll(".cell").forEach(c=>{
 });
 
 const COLS=[["candidate","Candidat"],["formula","Formule"],["prototype","Prototype"],["dE_mix_meV","dE_mix (meV/at)",1],
- ["dE_ml_meV","dE_ML (meV/at)",1],["rank_mix","Rang",1],["spacegroup","Groupe (relaxé)"],["volume_change_pct","ΔV (%)",1],
+ ["priority","Priorité"],["dE_mix_meV_chgnet","CHGNet (meV/at)",1],["chgnet_top","CHGNet ✓"],["dE_ml_meV","dE_ML (meV/at)",1],["rank_mix","Rang",1],["spacegroup","Groupe (relaxé)"],["volume_change_pct","ΔV (%)",1],
  ["dft_mp_meV","DFT MP (meV/at)",1],["caveat","Réserve"]];
 let sortKey="dE_mix_meV",dir=1;
 const head=document.querySelector("#t thead tr");
@@ -171,6 +179,9 @@ function cell(r,k){const v=r[k];
   case "prototype":return v.startsWith("mp-")?link(v):`<span class="tag proto">${v}</span>`;
   case "dE_mix_meV":return `<span class="${v<0?'neg':''}">${fmt(v)}</span>`;
   case "dE_ml_meV":return `<span class="${r.caveat?'muted':''}">${fmt(v)}</span>`;
+  case "priority":return v?`<span class="tag proto">${v}</span>`:'';
+  case "dE_mix_meV_chgnet":return `<span class="muted">${fmt(v)}</span>`;
+  case "chgnet_top":return v?'✓':'';
   case "rank_mix":return v===0?'1<sup>er</sup>':v+1;
   case "volume_change_pct":return v.toFixed(1);
   case "dft_mp_meV":return v===null?'':`${fmt(v)} <span class="muted">(${link(r.mp_gs)})</span>`;
@@ -179,13 +190,13 @@ function cell(r,k){const v=r[k];
 function render(){
  const q=$("q").value.trim().toLowerCase(),mt=$("mt").value,pt=$("pt").value;
  let rows=DATA.filter(r=>(!mt||r.M_type===mt)&&(!pt||(pt==="mp"?r.prototype.startsWith("mp-"):r.prototype===pt))&&
-  (!$("best").checked||r.rank_mix===0)&&(!$("ok").checked||!r.caveat)&&
+  (!$("best").checked||r.rank_mix===0)&&(!$("prio").checked||r.priority)&&(!$("ok").checked||!r.caveat)&&
   (!q||[r.candidate,r.formula,r.prototype,r.spacegroup].join(" ").toLowerCase().includes(q)));
  rows.sort((a,b)=>{let x=a[sortKey],y=b[sortKey];if(x===null||x==="")return 1;if(y===null||y==="")return -1;return (x>y?1:x<y?-1:0)*dir;});
  document.querySelectorAll("#t thead th").forEach(th=>th.className=th.dataset.k===sortKey?(dir>0?"asc":"desc"):"");
  document.querySelector("#t tbody").innerHTML=rows.map(r=>`<tr>${COLS.map(([k,,n])=>`<td class="${n?'num':''}">${cell(r,k)}</td>`).join("")}</tr>`).join("");
 }
-["q","mt","pt","best","ok"].forEach(id=>$(id).addEventListener("input",render));
+["q","mt","pt","best","ok","prio"].forEach(id=>$(id).addEventListener("input",render));
 render();
 </script>
 """
