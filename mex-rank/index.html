@@ -42,7 +42,7 @@ footer{color:var(--muted);font-size:12px;margin-top:16px;max-width:900px}
 <p class="sub">The 266 candidates of the <code>mex/</code> campaign (MCP project), relaxed with the MACE-MP universal
 potential and ranked by their energy above (or below) the hull of their competing phases, using the Materials Project
 GGA/GGA+U (MP2020) hull as reference. Machine-learning pre-screening: a ranking for the DFT queue, not a stability verdict.
-Generated October 2, 2026; same list as Table A1 of the accompanying report.</p>
+Generated October 2, 2026; same list as Table 3 (appendix A) of the accompanying report.</p>
 <p class="note">Accuracy against DFT on the 13 Materials Project ground states among the candidates: MACE 11 meV/atom,
 CHGNet 61 meV/atom (mean absolute error). Not reliable for nitrides (X = N) and E = C (caveat column).</p>
 <div class="stats" id="stats"></div>
@@ -83,7 +83,7 @@ COLS.forEach(([k,l])=>{const th=document.createElement("th");th.textContent=l;th
  if(k!=="cif")th.onclick=()=>{dir=sortKey===k?-dir:1;sortKey=k;render();};head.appendChild(th);});
 function cell(r,k){const v=r[k];
  switch(k){
-  case "compound":return `<span class="${r.in_mp?'f':'new'}">${v}</span>`;
+  case "compound":return r.in_mp?v:`<b>${v}</b>`;
   case "prototype":return v.startsWith("mp-")?"MP "+mpl(v):v.replace("P63mc","P6₃mc");
   case "mace":return `<span class="${v<0?'neg':''}">${f0(v)}</span>`;
   case "chgnet":return `<span class="muted">${f0(v)}</span>`;
